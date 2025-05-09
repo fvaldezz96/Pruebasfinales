@@ -9,15 +9,15 @@ services:
       - db-products
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db-products:5432/ms_products
-      SPRING_DATASOURCE_USERNAME: java
-      SPRING_DATASOURCE_PASSWORD: java123
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Clave123
 
   db-products:
     image: postgres:15.2
     container_name: db-products
     environment:
       POSTGRES_DB: ms_products
-      POSTGRES_USER: java
-      POSTGRES_PASSWORD: java123
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Clave123
     ports:
       - "5432:5432"

@@ -9,15 +9,15 @@ import javax.sql.DataSource;
 @Configuration
 public class DatabaseConfig {
 
-    @Bean(name = "ordersDataSource")
-    public DataSource ordersDataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5433/ms_orders");
-        dataSource.setUsername("java");
-        dataSource.setPassword("java123");
-        return dataSource;
-    }
+    // @Bean(name = "ordersDataSource")
+    // public DataSource ordersDataSource() {
+    //     DriverManagerDataSource dataSource = new DriverManagerDataSource();
+    //     dataSource.setDriverClassName("org.postgresql.Driver");
+    //     dataSource.setUrl("jdbc:postgresql://localhost:5433/ms_orders");
+    //     dataSource.setUsername("java");
+    //     dataSource.setPassword("java123");
+    //     return dataSource;
+    // }
 
     @Bean(name = "productsDataSource")
     public DataSource productsDataSource() {
