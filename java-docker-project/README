@@ -1,0 +1,63 @@
+# API Service Product - Setup and Run Instructions
+
+## Prerequisites
+- Docker installed and running
+- Docker Compose installed
+- Java 17 installed (if building locally)
+- Maven installed (if building locally)
+
+## Steps to Install Dependencies and Serve the API
+
+### 1. Clone the Repository
+```bash
+git clone {repository_url}
+cd {repository_directory}
+
+
+
+mvn clean package
+
+
+sudo mkdir -p /etc/docker
+echo '{"dns": ["8.8.8.8", "8.8.4.4"]}' | sudo tee [daemon.json](http://_vscodecontentref_/0)
+sudo systemctl restart docker
+
+
+export POSTGRES_PASSWORD={your_postgres_password}
+export POSTGRES_USER={your_postgres_user}
+export POSTGRES_DB={your_postgres_database}
+
+
+docker-compose up --build
+
+http://localhost:8080
+
+
+docker-compose down
+
+
+docker-compose down -v
+
+
+##ESTRUCTURA
+
+java-docker-project
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   ├── controllers
+│   │   │   │   ├── OrderController.java
+│   │   │   │   └── ProductController.java
+│   │   │   ├── models
+│   │   │   │   ├── Order.java
+│   │   │   │   └── Product.java
+│   │   │   ├── utils
+│   │   │   │   ├── DatabaseConfig.java
+│   │   │   │   └── HibernateUtil.java
+│   │   │   └── Application.java
+│   │   └── resources
+│   │       └── application.properties
+├── docker-compose.yml
+├── Dockerfile
+├── pom.xml
+└── README.md

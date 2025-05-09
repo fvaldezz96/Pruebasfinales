@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db-products
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db-products:5432/ms_products
+      SPRING_DATASOURCE_USERNAME: java
+      SPRING_DATASOURCE_PASSWORD: java123
+
+  db-products:
+    image: postgres:15.2
+    container_name: db-products
+    environment:
+      POSTGRES_DB: ms_products
+      POSTGRES_USER: java
+      POSTGRES_PASSWORD: java123
+    ports:
+      - "5432:5432"
