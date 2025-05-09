@@ -3,19 +3,28 @@ package com.example.controllers;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+package com.example.controllers;
+
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/products") // Prefijo para las rutas
 public class ProductController {
 
+    private List<String> products = new ArrayList<>();
+
     @GetMapping
-    public String getProducts() {
-        return "List of products";
+    public List<String> getProducts() {
+        return products;
     }
 
     @PostMapping
-    public Product addProduct(@RequestBody Product product) {
-        return productRepository.save(product);
+    public String addProduct(@RequestBody String product) {
+        products.add(product);
+        return "Product added: " + product;
     }
 
 //     private List<String> products = new ArrayList<>();
